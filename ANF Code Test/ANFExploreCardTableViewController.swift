@@ -6,11 +6,11 @@
 import UIKit
 
 class ANFExploreCardTableViewController: UITableViewController {
-
+    
     private var exploreData: [[AnyHashable: Any]]? {
         if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
-         let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
-         let jsonDictionary = try? JSONSerialization.jsonObject(with: fileContent, options: .mutableContainers) as? [[AnyHashable: Any]] {
+           let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+           let jsonDictionary = try? JSONSerialization.jsonObject(with: fileContent, options: .mutableContainers) as? [[AnyHashable: Any]] {
             return jsonDictionary
         }
         return nil
@@ -22,61 +22,75 @@ class ANFExploreCardTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreContentCell", for: indexPath)
-
-        if let imageView = cell.viewWithTag(1) as? UIImageView,
-           let name = exploreData?[indexPath.row]["backgroundImage"] as? String,
-           let image = UIImage(named: name) {
-            imageView.image = image
-        }
         
-        if let topDescriptionLabel = cell.viewWithTag(2) as? UILabel,
-           let topDescriptionText = exploreData?[indexPath.row]["topDescription"] as? String {
-            topDescriptionLabel.text = topDescriptionText
-            topDescriptionLabel.isHidden = false
-        }
-        
-        if let titleLabel = cell.viewWithTag(3) as? UILabel,
-           let titleText = exploreData?[indexPath.row]["title"] as? String {
-            titleLabel.text = titleText
-        }
-        
-        if let promoLabel = cell.viewWithTag(4) as? UILabel {
-            if let promoText = exploreData?[indexPath.row]["promoMessage]"] as? String {
-                promoLabel.text = promoText
-                promoLabel.isHidden = false
-            }
-        }
-        
-        if let bottomDescriptionLabel = cell.viewWithTag(5) as? UILabel {
-            if let bottomDescriptionText = exploreData?[indexPath.row]["bottomDescription"] as? String {
-                let attributedText = labelWithLink(bottomDescriptionText)
-                bottomDescriptionLabel.attributedText = attributedText
-                bottomDescriptionLabel.isHidden = false
-
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLinkTap(_:)))
-                bottomDescriptionLabel.addGestureRecognizer(tapGesture)
-                bottomDescriptionLabel.isUserInteractionEnabled = true
-            }
-        }
-        
-        if let contentView = cell.viewWithTag(6) {
-            if let contentStackView = contentView as? UIStackView {
+        if let currentData = exploreData?[indexPath.row] {
+            if let imageView = cell.viewWithTag(1) as? UIImageView,
+               let name = exploreData?[indexPath.row]["backgroundImage"] as? String,
+               let image = UIImage(named: name) {
+                imageView.image = image
                 
-                // Remove existing subviews from contentStackView to prevent additional new views being added
-                for subview in contentStackView.arrangedSubviews {
-                    contentStackView.removeArrangedSubview(subview)
-                    subview.removeFromSuperview()
+                let aspectRatio = image.size.width / image.size.height
+                let maxWidth: CGFloat = self.view.bounds.width
+                
+                let newWidth = min(maxWidth, image.size.width)
+                let newHeight = newWidth / aspectRatio
+                
+                imageView.image = image
+                imageView.frame = CGRect(x: 0, y: 0, width: newWidth, height: newHeight)
+            }
+            
+            if let topDescriptionLabel = cell.viewWithTag(2) as? UILabel,
+               let topDescriptionText = exploreData?[indexPath.row]["topDescription"] as? String {
+                topDescriptionLabel.text = topDescriptionText
+                topDescriptionLabel.isHidden = false
+            }
+            
+            if let titleLabel = cell.viewWithTag(3) as? UILabel,
+               let titleText = exploreData?[indexPath.row]["title"] as? String {
+                titleLabel.text = titleText
+            }
+            
+            if let promoLabel = cell.viewWithTag(4) as? UILabel {
+                if let promoText = exploreData?[indexPath.row]["promoMessage"] as? String {
+                    promoLabel.text = promoText
+                    promoLabel.isHidden = false
+                }
+            }
+            
+            if let bottomDescriptionLabel = cell.viewWithTag(5) as? UILabel {
+                if let bottomDescriptionText = exploreData?[indexPath.row]["bottomDescription"] as? String {
+                    let attributedText = labelWithLink(bottomDescriptionText)
+                    bottomDescriptionLabel.attributedText = attributedText
+                    bottomDescriptionLabel.isHidden = false
+                    
+                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLinkTap(_:)))
+                    bottomDescriptionLabel.addGestureRecognizer(tapGesture)
+                    bottomDescriptionLabel.isUserInteractionEnabled = true
+                }
+            }
+            
+            if let contentView = cell.viewWithTag(6) {
+                if let contentStackView = contentView as? UIStackView {
+                    
+                    // Remove existing subviews from contentStackView to prevent additional new views being added
+                    for subview in contentStackView.arrangedSubviews {
+                        contentStackView.removeArrangedSubview(subview)
+                        subview.removeFromSuperview()
+                    }
+                    
+                    let buttonModel = ButtonModel(targetURL: "tempLink", title: "tempTitle")
+                    let button = ButtonComponent.createButton(with: buttonModel, indexPath: indexPath, target: self, action: #selector(handleContentButtonTap(_:)))
+                    
+                    contentStackView.addArrangedSubview(button)
                 }
                 
-                if let content = exploreData?[indexPath.row]["content"] {
-                    // Add button component here
-                }
             }
         }
         
         return cell
     }
 }
+
 
 extension ANFExploreCardTableViewController {
     
@@ -107,6 +121,10 @@ extension ANFExploreCardTableViewController {
     
     // Handles bottom description attribute text link
     @objc func handleLinkTap(_ gestureRecognizer: UITapGestureRecognizer) {
-       // Add tap link here
+        // Add tap link here
+    }
+    
+    @objc func handleContentButtonTap(_ sender: UIButton) {
+        // add button link here
     }
 }
