@@ -58,24 +58,30 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" tag="6" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-7W-a7s">
-                                            <rect key="frame" x="20" y="239" width="374" height="128"/>
+                                            <rect key="frame" x="20" y="239" width="374" height="117"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1Xz-0p-iwB" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="0Gk-oA-CqN"/>
                                         <constraint firstItem="1Xz-0p-iwB" firstAttribute="top" secondItem="qoa-I3-K1L" secondAttribute="bottom" constant="10" id="0yv-JK-bOx"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="leading" secondItem="cAC-C2-Lla" secondAttribute="leadingMargin" id="9IT-XY-6gu"/>
                                         <constraint firstItem="EQ9-Uo-28T" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="BIh-nT-2BW"/>
+                                        <constraint firstItem="wSF-9B-DJk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cAC-C2-Lla" secondAttribute="leadingMargin" constant="30" id="Gmq-p5-LmY"/>
                                         <constraint firstItem="qoa-I3-K1L" firstAttribute="top" secondItem="cAC-C2-Lla" secondAttribute="top" id="JqR-3F-FRQ"/>
                                         <constraint firstItem="jnv-PD-O39" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="KHr-nO-c9P"/>
                                         <constraint firstItem="jnv-PD-O39" firstAttribute="top" secondItem="1Xz-0p-iwB" secondAttribute="bottom" constant="16" id="TXq-z8-pAh"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="trailing" secondItem="cAC-C2-Lla" secondAttribute="trailingMargin" id="UpX-7M-XXd"/>
                                         <constraint firstItem="EQ9-Uo-28T" firstAttribute="top" secondItem="jnv-PD-O39" secondAttribute="bottom" constant="16" id="UuH-YU-naE"/>
                                         <constraint firstItem="qoa-I3-K1L" firstAttribute="centerX" secondItem="1Xz-0p-iwB" secondAttribute="centerX" id="XFl-ur-4tA"/>
-                                        <constraint firstAttribute="bottom" secondItem="jjJ-7W-a7s" secondAttribute="bottom" constant="16" id="ZfT-kD-f5N"/>
-                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="buK-mn-CVY"/>
-                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="top" secondItem="wSF-9B-DJk" secondAttribute="bottom" constant="28" id="dfK-zc-FFe"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="leading" secondItem="cAC-C2-Lla" secondAttribute="leadingMargin" id="dLb-Bp-PBC"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wSF-9B-DJk" secondAttribute="trailing" constant="30" id="fDb-S7-atM"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="top" secondItem="wSF-9B-DJk" secondAttribute="bottom" constant="28" id="jjV-QY-9Rs"/>
                                         <constraint firstItem="wSF-9B-DJk" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="jno-9d-tTn"/>
-                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="leading" secondItem="cAC-C2-Lla" secondAttribute="leadingMargin" id="kGv-7F-hW2"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="centerX" secondItem="wSF-9B-DJk" secondAttribute="centerX" id="lIt-ek-376"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="leading" secondItem="cAC-C2-Lla" secondAttribute="leadingMargin" id="pq9-FQ-cKO"/>
                                         <constraint firstItem="wSF-9B-DJk" firstAttribute="top" secondItem="EQ9-Uo-28T" secondAttribute="bottom" constant="24" id="rIp-fP-HEC"/>
+                                        <constraint firstItem="jjJ-7W-a7s" firstAttribute="trailing" secondItem="cAC-C2-Lla" secondAttribute="trailingMargin" id="ts5-cs-Yoa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="jjJ-7W-a7s" secondAttribute="bottom" constant="16" id="wf4-es-J9P"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

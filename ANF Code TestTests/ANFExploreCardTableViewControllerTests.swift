@@ -3,8 +3,8 @@
 //  ANF Code TestTests
 //
 
-
 import XCTest
+import SDWebImage
 @testable import ANF_Code_Test
 
 class ANFExploreCardTableViewControllerTests: XCTestCase {
@@ -102,6 +102,16 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
         XCTAssert(imageView?.image != nil, "image view image should not be nil")
     }
     
+    func test_sdImageLoading() {
+        let imageView = UIImageView()
+        let imageURL = URL(string: testInstance.exploreData[0].backgroundImage)!
+
+        imageView.sd_setImage(with: imageURL)
+
+        // Assert that the image view has an image after loading
+        XCTAssertNotNil(imageView.image)
+    }
+
     // Bottom Description Tests
     func test_labelWithLink() {
         let attributedString = testInstance.labelWithLink("<a href=\"https://test.com\">Link</a>")
@@ -151,7 +161,7 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
         
         let promoLabel = cell.viewWithTag(4) as? UILabel
         XCTAssertNotNil(promoLabel, "Promo label should not be nil")
-        //        XCTAssert(promoLabel)
+        XCTAssertEqual(promoLabel?.text, "USE CODE: 12345", "Promo label text should match the expected description")
     }
     
     func test_promoLabelShouldBeHidden() {
@@ -199,6 +209,6 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
             }
         }
         
-        wait(for: [expectation], timeout: 10.0) // Adjust the timeout based on your network conditions
+        wait(for: [expectation], timeout: 10.0)
     }
 }
