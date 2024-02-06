@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		3E727EDF2672708B006C11AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E727EDD2672708B006C11AC /* LaunchScreen.storyboard */; };
 		3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */; };
 		3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */; };
+		B116AD692B71B3AA00932AE1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B116AD682B71B3AA00932AE1 /* SDWebImage */; };
+		B116AD6B2B71B3AA00932AE1 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B116AD6A2B71B3AA00932AE1 /* SDWebImageMapKit */; };
 		B1D772F92B71AEF50068A106 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D772F82B71AEF50068A106 /* ButtonComponent.swift */; };
 		B1D772FB2B71AF1D0068A106 /* ExploreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D772FA2B71AF1D0068A106 /* ExploreDataModel.swift */; };
 		B1D772FD2B71AF500068A106 /* ExploreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D772FC2B71AF500068A106 /* ExploreDataViewModel.swift */; };
@@ -53,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B116AD6B2B71B3AA00932AE1 /* SDWebImageMapKit in Frameworks */,
+				B116AD692B71B3AA00932AE1 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +131,10 @@
 			dependencies = (
 			);
 			name = "ANF Code Test";
+			packageProductDependencies = (
+				B116AD682B71B3AA00932AE1 /* SDWebImage */,
+				B116AD6A2B71B3AA00932AE1 /* SDWebImageMapKit */,
+			);
 			productName = "ANF Code Test";
 			productReference = 3E727ECF26727088006C11AC /* ANF Code Test.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 3E727EC626727088006C11AC;
+			packageReferences = (
+				B116AD672B71B3A200932AE1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 3E727ED026727088006C11AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -494,6 +505,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B116AD672B71B3A200932AE1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B116AD682B71B3AA00932AE1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B116AD672B71B3A200932AE1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B116AD6A2B71B3AA00932AE1 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B116AD672B71B3A200932AE1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E727EC726727088006C11AC /* Project object */;
 }

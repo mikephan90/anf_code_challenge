@@ -36,6 +36,20 @@ class ButtonComponent {
 
     // Button action on tap to open hyperlink
     static func handleContentButtonTap(_ sender: UIButton, target: Any?, exploreData: [ExploreDataResponse]?) {
-       // add button functionality here
+        let row = sender.tag
+
+        guard let currentData = exploreData?[row],
+              let content = currentData.content,
+              let index = sender.superview?.subviews.firstIndex(of: sender),
+              index < content.count
+        else {
+            return
+        }
+
+        let contentItem = content[index]
+
+        let targetURL = contentItem.target
+        let url = URL(string: targetURL)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
 }

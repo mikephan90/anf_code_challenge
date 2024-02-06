@@ -58,7 +58,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" tag="6" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-7W-a7s">
-                                            <rect key="frame" x="20" y="239" width="374" height="144"/>
+                                            <rect key="frame" x="20" y="239" width="374" height="128"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -70,7 +70,7 @@
                                         <constraint firstItem="jnv-PD-O39" firstAttribute="top" secondItem="1Xz-0p-iwB" secondAttribute="bottom" constant="16" id="TXq-z8-pAh"/>
                                         <constraint firstItem="EQ9-Uo-28T" firstAttribute="top" secondItem="jnv-PD-O39" secondAttribute="bottom" constant="16" id="UuH-YU-naE"/>
                                         <constraint firstItem="qoa-I3-K1L" firstAttribute="centerX" secondItem="1Xz-0p-iwB" secondAttribute="centerX" id="XFl-ur-4tA"/>
-                                        <constraint firstAttribute="bottom" secondItem="jjJ-7W-a7s" secondAttribute="bottom" id="ZfT-kD-f5N"/>
+                                        <constraint firstAttribute="bottom" secondItem="jjJ-7W-a7s" secondAttribute="bottom" constant="16" id="ZfT-kD-f5N"/>
                                         <constraint firstItem="jjJ-7W-a7s" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="buK-mn-CVY"/>
                                         <constraint firstItem="jjJ-7W-a7s" firstAttribute="top" secondItem="wSF-9B-DJk" secondAttribute="bottom" constant="28" id="dfK-zc-FFe"/>
                                         <constraint firstItem="wSF-9B-DJk" firstAttribute="centerX" secondItem="cAC-C2-Lla" secondAttribute="centerX" id="jno-9d-tTn"/>
